@@ -1,6 +1,7 @@
 package de.sldk.mc;
 
 import de.sldk.mc.config.PrometheusExporterConfig;
+import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.logging.Level;
@@ -21,10 +22,10 @@ public class PrometheusExporter extends JavaPlugin {
     }
 
     private void startMetricsServer() {
-        String host = config.get(PrometheusExporterConfig.HOST);
-        Integer port = config.get(PrometheusExporterConfig.PORT);
+        String host = "0.0.0.0";
+        int port = Bukkit.getPort() + 1;
 
-		server = new MetricsServer(host, port, this);
+        server = new MetricsServer(host, port, this);
 
         try {
             server.start();

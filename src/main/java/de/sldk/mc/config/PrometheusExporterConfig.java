@@ -12,8 +12,6 @@ import java.util.function.Function;
 
 public class PrometheusExporterConfig {
 
-    public static final PluginConfig<String> HOST = new PluginConfig<>("host", "localhost");
-    public static final PluginConfig<Integer> PORT = new PluginConfig<>("port", 9940);
     public static final List<MetricConfig> METRICS = Arrays.asList(
             metricConfig("entities_total", true, Entities::new),
             metricConfig("villagers_total", true, Villagers::new),
@@ -49,8 +47,6 @@ public class PrometheusExporterConfig {
     public void loadDefaultsAndSave() {
         FileConfiguration configFile = prometheusExporter.getConfig();
 
-        PrometheusExporterConfig.HOST.setDefault(configFile);
-        PrometheusExporterConfig.PORT.setDefault(configFile);
         PrometheusExporterConfig.METRICS.forEach(metric -> metric.setDefault(configFile));
 
         configFile.options().copyDefaults(true);
