@@ -8,12 +8,18 @@ import java.util.logging.Level;
 
 public class PrometheusExporter extends JavaPlugin {
 
+    private static PrometheusExporter instance;
+
+    public static PrometheusExporter getInstance() {
+        return instance;
+    }
+
     private final PrometheusExporterConfig config = new PrometheusExporterConfig(this);
     private MetricsServer server;
 
     @Override
     public void onEnable() {
-
+        instance = this;
         config.loadDefaultsAndSave();
 
         config.enableConfiguredMetrics();

@@ -58,7 +58,7 @@ public class PrometheusExporterConfig {
                         metric.enable();
                     }
 
-                    prometheusExporter.getLogger().fine("Metric " + metric.getClass().getSimpleName() + " enabled: " + enabled);
+                    prometheusExporter.getLogger().info("Metric " + metric.getClass().getSimpleName() + " enabled: " + enabled);
 
                     MetricRegistry.getInstance().register(metric);
                 });
