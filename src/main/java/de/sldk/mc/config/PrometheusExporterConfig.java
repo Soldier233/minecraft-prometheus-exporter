@@ -14,14 +14,10 @@ public class PrometheusExporterConfig {
 
     public static final List<MetricConfig> METRICS = Arrays.asList(
             metricConfig("entities_total", true, Entities::new),
-            metricConfig("villagers_total", true, Villagers::new),
-            metricConfig("loaded_chunks_total", true, LoadedChunks::new),
             metricConfig("jvm_memory", true, Memory::new),
             metricConfig("players_online_total", true, PlayersOnlineTotal::new),
             metricConfig("players_total", true, PlayersTotal::new),
-            metricConfig("whitelisted_players", false, WhitelistedPlayers::new),
             metricConfig("tps", true, Tps::new),
-            metricConfig("world_size", true, WorldSize::new),
 
             metricConfig("jvm_threads", true, ThreadsWrapper::new),
             metricConfig("jvm_gc", true, GarbageCollectorWrapper::new),
@@ -29,9 +25,7 @@ public class PrometheusExporterConfig {
             metricConfig("tick_duration_median", true, TickDurationMedianCollector::new),
             metricConfig("tick_duration_average", true, TickDurationAverageCollector::new),
             metricConfig("tick_duration_min", false, TickDurationMinCollector::new),
-            metricConfig("tick_duration_max", true, TickDurationMaxCollector::new),
-
-            metricConfig("player_online", false, PlayerOnline::new)
+            metricConfig("tick_duration_max", true, TickDurationMaxCollector::new)
     );
 
     private final PrometheusExporter prometheusExporter;
