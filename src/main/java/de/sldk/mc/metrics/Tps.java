@@ -1,6 +1,7 @@
 package de.sldk.mc.metrics;
 
 import io.prometheus.client.Gauge;
+import net.minecraft.server.v1_12_R1.MinecraftServer;
 import org.bukkit.Bukkit;
 import org.bukkit.craftbukkit.v1_12_R1.CraftServer;
 import org.bukkit.plugin.Plugin;
@@ -28,6 +29,6 @@ public class Tps extends Metric {
 
     @Override
     public void doCollect() {
-        TPS.set(((CraftServer) Bukkit.getServer()).getTPS()[0]);
+        TPS.set(MinecraftServer.getServer().recentTps[0]);
     }
 }

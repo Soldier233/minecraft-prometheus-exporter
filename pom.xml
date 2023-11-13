@@ -96,7 +96,7 @@
             <artifactId>nms-all</artifactId>
             <version>1.0.0</version>
             <scope>system</scope>
-            <systemPath>${project.basedir}/libs/patched_1.12.2.jar</systemPath>
+            <systemPath>${project.basedir}/libs/spigot-1.12.2.jar</systemPath>
         </dependency>
 
     </dependencies>
